@@ -9,7 +9,9 @@ import com.alibaba.android.arouter.facade.template.IInterceptor;
 import com.android.arouter.RouterPath;
 
 /**
- * 拦截器是ARouter这一款框架的亮点。说起拦截器这个概念，可能印象更加深刻的是OkHttp的拦截器，
+ *
+ * 拦截器是ARouter这一款框架的亮点。
+ * 说起拦截器这个概念，可能印象更加深刻的是OkHttp的拦截器，
  * OkHttp的拦截器主要是用来拦截请求体（比如添加请求Cookie）和拦截响应体（判断Token是否过期），
  * 在真正的请求和响应前做一些判断和修改然后在去进行操作，大抵这就是拦截器的简单概念。
  *
