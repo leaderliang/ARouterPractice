@@ -1,11 +1,12 @@
 package com.android.arouter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-@Route(path = RouterPath.ACTIVITY_URL_SIMPLE)
+@Route(path = RouterPath.ACTIVITY_URL_SIMPLE, group = RouterPath.DEFINE_GROUP)
 public class SimpleActivity extends BaseActivity {
 
     @Autowired
@@ -22,6 +23,8 @@ public class SimpleActivity extends BaseActivity {
     @Autowired(name = "object")
     User user;
 
+    private final int RESULT_CODE = 456;
+
     private TextView simpleId;
 
     @Override
@@ -32,6 +35,11 @@ public class SimpleActivity extends BaseActivity {
         simpleId = $(R.id.simple_id);
         simpleId.setText(age + "--" + name + "--" + " user-> " + user);
 
+        $(R.id.simple_id).setOnClickListener(v -> {
+            Intent data = new Intent(SimpleActivity.this, MainActivity.class);
+            setResult(RESULT_CODE, data);
+            finish();
+        });
     }
 
 

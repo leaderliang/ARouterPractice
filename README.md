@@ -1,13 +1,17 @@
 ## ARouter 基本操作回顾
 
+### Fragment跳转
+
+Fragment的跳转也可以参照 Activity 跳转，第一步依旧是先写上类注释（@Route(path = RouterPath.ACTIVITY_URL_MAIN)），然后强转：
+
+```
+Fragment mFragment = (Fragment)ARouter.getInstance().build(RouterPath.ACTIVITY_URL_MAIN).navigation();
+```
 
 ### 编译错误记录
 
-``` 
-:app:compileDebugJavaWithJavac	254 ms 
-Execute compile	237 ms
-```
-
+ 
+#### :app:compileDebugJavaWithJavac	254 ms   Execute compile	237 ms
 
 ```
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileDebugJavaWithJavac'.
@@ -76,6 +80,5 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 
 
 ```
-
-你贴这么多一坨，这个错误 compileDebugJavaWithJavac 的意思就是编译的时候出错了,
+贴这么一坨代码，这个错误 compileDebugJavaWithJavac 的意思就是编译的时候出错了,
 多半是 Autowired 的字段写了 private，编译的时候会检查注入的字段是不是子类可写
